@@ -1,0 +1,55 @@
+/*
+body {padding: 0px; margin:0px; background:url(../img/image.jpg) ; background-position: center; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;}
+*/
+#header {
+    background-color:black;
+    height:30px;
+    color:white;
+    text-align:center;
+    padding:5px;
+    font-size:150%;
+}
+#nav {
+    line-height:30px;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+
+/*         轮播           */
+#list0 {
+    height:400px;
+    width:300px;
+    float:left;
+    margin-top:10px;
+	margin-left:110px;	      
+}
+#list1 {
+    height:400px;
+    width:300px;
+    float:left;
+    margin-top:10px;
+	margin-left:50px;	      
+}
+#list2 {
+    height:400px;
+    width:300px;
+    float:none;
+    margin-top:10px;
+	margin-left:50px;	      
+}
+#hutao {
+    height:600px;
+    width:500px;
+    float:left;
+    margin-top:10px;
+	margin-left:50px;	      
+}
+
+#end {
+    color:rgb(0, 0, 0);
+    text-align:center;
+    padding:5px;
+    font-size:150%;
+}
