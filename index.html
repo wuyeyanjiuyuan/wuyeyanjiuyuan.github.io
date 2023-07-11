@@ -1,0 +1,183 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="live2d/assets/waifu.css" />
+    <link rel="stylesheet" type="text/css" href="css/lunbo.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/search-form.css">
+    <script src="live2d/assets/jquery.min.js"></script>
+    <script src="live2d/assets/jquery-ui.min.js"></script>
+
+    <!-- 禁止百度等搜索引擎自动转码 -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+</head>
+
+<body style="font-family: 'Microsoft YaHei';">
+    <title>午夜研究院</title>
+    <link rel="icon" href="images/icon.ico" sizes="16x16">
+    <a href="https://www.wuyeyanjiuyuan.club">
+        <img style="width: 558px; height: 118px;" src="images/logo.png" alt="图片">
+    </a>
+    <div id="header">今天也是充满希望的一天</div>
+
+
+    <div id="nav">
+        功能测试<br>
+        2021-05-08<br>
+        go<br>
+    </div>
+
+    <!----------------------------------首页轮播图片--------------------------------------->
+    <div class="box">
+        <ul class="swiper">
+            <li class="active"><a href="https://space.bilibili.com/13308970" target="_blank"><img
+                        src="images/index1.jpg" alt=""></a></li>
+            <li><a href="https://www.cnki.net/" target="_blank"><img src="images/index2.jpg" alt=""></a></li>
+            <li><a href="https://lol.qq.com/act/a20210506msi/index.shtml?e_code=507042" target="_blank"><img
+                        src="images/index3.jpg" alt=""></a></li>
+            <li class="active"><a href="https://space.bilibili.com/13308970" target="_blank"><img
+                        src="images/index1.jpg" alt=""></a></li>
+        </ul>
+        <ul class="dot">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="left">
+            &lt;</div>
+        <div class="right">&gt;</div>
+    </div>
+    <script src="js/lunbo.js"></script>
+
+    <div id="hutao"><img src="images/hutao.jpg.png" alt=""></div>
+    <div id="list2"></div>
+    <h1>
+        <br>
+        <br>
+        <br>
+        <br>
+    </h1>
+    <!----------------------------------首页list图片--------------------------------------->
+    <div id="list0"><a href="https://www.bilibili.com/bangumi/play/ss33542?from=search&seid=2251467200304440840"
+            target="_blank"><img src="images/list1.png" alt=""></a></div>
+    <div id="list1"><a href="https://www.bilibili.com/bangumi/play/ss33543?from=search&seid=2251467200304440840"
+            target="_blank"><img src="images/list2.png" alt=""></a></div>
+    <div id="list1"><a href="https://www.bilibili.com/bangumi/play/ss33539?from=search&seid=2251467200304440840"
+            target="_blank"><img src="images/list3.png" alt=""></a></div>
+    <div id="list1"><a href="https://www.bilibili.com/bangumi/play/ss5365?from=search&seid=2251467200304440840"
+            target="_blank"><img src="images/list4.png" alt=""></a></div>
+    <div id="list1"><a href="https://www.bilibili.com/bangumi/play/ss5316?from=search&seid=2251467200304440840"
+            target="_blank"><img src="images/list5.png" alt=""></a></div>
+    
+    <div id="list2"></div>
+    <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>    
+	<div id="end">
+		<!--done-->
+        Copyright &copy; 2021 午夜研究院
+    <br />
+    <!----------------------------------首页搜索框--------------------------------------->
+    <form onsubmit="submitFn(this, event);">
+        <div class="search-wrapper">
+            <div class="input-holder">
+                <input type="text" class="search-input" placeholder="Type to search" />
+                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+            </div>
+            <span class="close" onclick="searchToggle(this, event);"></span>
+            <div class="result-container">
+            </div>
+        </div>
+    </form>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        function searchToggle(obj, evt){
+            var container = $(obj).closest('.search-wrapper');
+
+            if(!container.hasClass('active')){
+                  container.addClass('active');
+                  evt.preventDefault();
+            }
+            else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                  container.removeClass('active');
+                  // clear input
+                  container.find('.search-input').val('');
+                  // clear and hide result container when we press close
+                  container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+            }
+        }
+
+        function submitFn(obj, evt){
+            value = $(obj).find('.search-input').val().trim();
+
+            _html = "Yup yup! Your search text sounds like this: ";
+            if(!value.length){
+                _html = "Yup yup! Add some text friend :D";
+            }
+            else{
+                _html += "<b>" + value + "</b>";
+            }
+
+            $(obj).find('.result-container').html('<span>' + _html + '</span>');
+            $(obj).find('.result-container').fadeIn(100);
+
+            evt.preventDefault();
+        }
+    </script>
+    <!------------------------------------live2d--------------------------------------->
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    <script src="live2d/assets/waifu-tips.js"></script>
+    <script src="live2d/assets/live2d.js"></script>
+    <script type="text/javascript">
+        live2d_settings['modelId'] = 5;                  // 默认模型 ID
+        live2d_settings['modelTexturesId'] = 1;          // 默认材质 ID   
+        initModel("live2d/assets/waifu-tips.json");
+    </script>
+
+    <script type="text/javascript">
+        /* 鼠标特效 */
+        var a_idx = 0;
+        jQuery(document).ready(function($) {
+            $("body").click(function(e) {
+                var a = new Array("富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善");
+                var $i = $("<span></span>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                y = e.pageY;
+                $i.css({
+                    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+                });
+                $("body").append($i);
+                $i.animate({
+                    "top": y - 180,
+                    "opacity": 0
+                },
+                1500,
+                function() {
+                    $i.remove();
+                });
+            });
+        });
+    </script>
+</body>
