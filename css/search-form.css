@@ -6,7 +6,7 @@ html,body {height: 100%;}
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     top:65px;
-    left:50%;
+    left:75%;
 }
 .search-wrapper.active {}
 
