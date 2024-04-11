@@ -9,6 +9,17 @@ body {padding: 0px; margin:0px; background:url(../img/image.jpg) ; background-po
     padding:5px;
     font-size:150%;
 }
+/*          标题栏          */
+#subpage-link {
+    position: absolute;
+    left: 10%;
+    color: black; /* 默认颜色 */
+    text-decoration: none; /* 去掉下划线 */
+}
+#subpage-link:hover {
+    color: lightblue; /* 滑过时的颜色 */
+}
+
 #nav {
     line-height:30px;
     height:300px;
