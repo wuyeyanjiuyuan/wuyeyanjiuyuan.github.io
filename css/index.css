@@ -32,28 +32,40 @@ body {padding: 0px; margin:0px; background:url(../img/image.jpg) ; background-po
 /*         轮播           */
 /* 固定每个 list 项的大小 */
 /* 确保 #list0, #list1 和 #list2 保持一行 */
-#list-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+/* 新增主容器 */
+#main-container {
+    width: 1200px;  /* 固定页面总宽度 */
+    margin: 0 auto; /* 居中显示 */
+    overflow: hidden;
 }
 
+/* 列表容器调整 */
+#list-container {
+    width: 1200px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    clear: both;  /* 清除上方浮动 */
+}
+
+/* 列表项统一样式 */
 #list0, #list1, #list2 {
-    width: 270px; /* 固定宽度 */
-    height: 360px; /* 固定高度 */
-    margin: 10px;
+    width: 220px;  /* 缩小单个列表项宽度 */
+    height: 300px;
+    margin: 0 10px;
+    flex-shrink: 0;  /* 禁止收缩 */
 }
 
 #list2 {
     margin-left: 50px; /* 给右侧留出空间 */
 }
 
+/* 修改hutao容器 */
 #hutao {
-    height:600px;
-    width:400px;
-    float:left;
-    margin-top:10px;
-	margin-left:50px;	      
+    width: 360px;
+    height: 450px;  /* 与轮播图等高 */
+    float: left;
+    margin: 10px 0 0 50px;
 }
 
 #end {

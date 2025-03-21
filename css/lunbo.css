@@ -2,20 +2,17 @@
 	padding:0;
 	margin:0;
 }
+/* 修改轮播容器 */
 .box {
-	width:1000px;
-	height:600px;
-	margin-top:10px;
-	margin-left:0px;
-	position:relative;
-	overflow:hidden;
-	float:left;
-	flex: 1; /* 让轮播图占据可用空间 */
+    width: 750px;
+    height: 450px;  /* 缩小尺寸 */
+    float: left;
+    margin: 10px 0 0 50px;
 }
 li {
 	list-style:none;
 	width:100%;
-	height:600px;
+	height:450px;
 }
 img {
 	width:100%;
@@ -24,7 +21,7 @@ img {
 }
 .swiper {
 	width:500%;
-	height:600px;
+	height:450px;
 	position:absolute;
 	left:0;
 	top:0;
