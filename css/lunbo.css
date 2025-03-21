@@ -10,6 +10,7 @@
 	position:relative;
 	overflow:hidden;
 	float:left;
+	flex: 1; /* 让轮播图占据可用空间 */
 }
 li {
 	list-style:none;
