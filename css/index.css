@@ -8,6 +8,7 @@ body {padding: 0px; margin:0px; background:url(../img/image.jpg) ; background-po
     text-align:center;
     padding:5px;
     font-size:150%;
+    margin: 0 auto;
 }
 /*          标题栏          */
 #subpage-link {
@@ -63,4 +64,5 @@ body {padding: 0px; margin:0px; background:url(../img/image.jpg) ; background-po
     text-align:center;
     padding:5px;
     font-size:150%;
+    margin: 0 auto;
 }

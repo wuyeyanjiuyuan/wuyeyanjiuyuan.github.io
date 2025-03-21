@@ -6,6 +6,18 @@ h1,h2,h3,h4,h5,h6{font-size:100%;font-family:arial,'hiragino sans gb','microsoft
 li{list-style:none}
 a:link,a:visited{text-decoration:none}
 
+/* 固定导航栏宽度 */
+.navigation-inner {
+    width: 1000px; /* 使导航栏宽度固定 */
+    margin: 0 auto; /* 使其居中显示 */
+}
+
+/* 固定字体大小和项之间的间距 */
+.navigation-up .navigation-v3 li {
+    font-size: 16px; /* 固定字体大小 */
+    margin-right: 20px; /* 固定项间距 */
+}
+
 
 .head-v3{position:relative;z-index:100;min-width:1000px}
 .head-v3 .navigation-inner{margin:0 auto;width:980px;position:relative}
