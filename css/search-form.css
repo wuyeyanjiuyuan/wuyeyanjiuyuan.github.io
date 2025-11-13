@@ -14,7 +14,7 @@ html,body {height: 100%;}
     top: auto;
     left: auto;
 
-    margin-left: -40px;      /* ★ 往左移动 40px（你可以调成 -20/-60）*/
+    margin-left: -20px;      /* ★ 往左移动 40px（你可以调成 -20/-60）*/
 }
 .search-wrapper.active {}
 
