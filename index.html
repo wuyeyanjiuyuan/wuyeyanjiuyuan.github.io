@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/lunbo.css">
   <link rel="stylesheet" href="css/search-form.css">
-  <!-- 不再需要 loading.css，如果以后想用动画可以再打开 -->
+  <!-- 不再需要 loading.css，如果里面有 .module {opacity:0} 就别引入了 -->
   <!-- <link rel="stylesheet" href="css/loading.css"> -->
 
-  <!-- jQuery（给 live2d 和模块加载共用） -->
+  <!-- jQuery -->
   <script src="live2d/assets/jquery.min.js"></script>
   <script src="live2d/assets/jquery-ui.min.js"></script>
 
@@ -38,17 +38,25 @@
       <a href="#">关于我们</a>
     </nav>
 
-    <!-- 搜索模块容器 -->
+    <!-- 搜索模块 -->
     <div id="module-search"></div>
   </header>
 
-  <!-- 模块区 -->
-  <main>
-    <div id="module-carousel"></div>
-    <div id="module-featured"></div>
-    <div id="module-live2d"></div>
-    <div id="module-effects"></div>
+  <!-- 主体内容：左轮播 + 右精选 -->
+  <main id="main-container">
+    <section class="hero-row">
+      <!-- 左：轮播 -->
+      <div id="module-carousel" class="hero-left"></div>
+      <!-- 右：精选推荐 -->
+      <aside id="module-featured" class="hero-right"></aside>
+    </section>
   </main>
+
+  <!-- Live2D 模块（内容里有 waifu，依旧固定在右下角） -->
+  <div id="module-live2d"></div>
+
+  <!-- 其它 JS 特效（点击飘字等），只包含 <script> 的模块 -->
+  <div id="module-effects"></div>
 
   <!-- 页脚 -->
   <footer class="footer">
@@ -58,8 +66,9 @@
   <!-- 模块加载逻辑（无动画） -->
   <script>
     $(function(){
+      // 如果 modules 放在 /modules/ 目录下就用下面这版路径
       const modules = {
-        "#module-search":  "./modules/search.html",
+        "#module-search":   "./modules/search.html",
         "#module-carousel": "./modules/carousel.html",
         "#module-featured": "./modules/featured.html",
         "#module-live2d":   "./modules/live2d.html",
