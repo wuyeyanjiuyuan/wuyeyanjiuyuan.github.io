@@ -20,8 +20,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;      /* 让 JS 自己改宽度，不强写 300% */
-  height: 100%;
+  width: 100%;    
+  margin: 0;
+  padding: 0;
 }
 
 /* 每个 li 默认就是一张铺满的图，具体位移/显示由 JS 控制 */
@@ -29,6 +30,7 @@
   list-style: none;
   width: 100%;
   height: 100%;
+  float: left;           
 }
 
 
