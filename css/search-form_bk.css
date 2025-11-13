@@ -1,0 +1,84 @@
+/* 不再让搜索框绝对定位，跟随 header 布局 */
+.search-wrapper {
+  position: static;
+}
+
+/* 搜索框整体外观 */
+.search-wrapper .input-holder {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: rgba(240, 240, 240, 0.9);
+  border-radius: 16px;
+  padding: 0 8px;
+  width: 220px;
+}
+
+/* 输入框 */
+.search-wrapper .input-holder .search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 搜索按钮 */
+.search-wrapper .input-holder .search-icon {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: #007aff;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-wrapper .input-holder .search-icon span {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  display: block;
+  transform: rotate(45deg);
+}
+
+.search-wrapper .input-holder .search-icon span::before,
+.search-wrapper .input-holder .search-icon span::after {
+  content: "";
+  position: absolute;
+}
+
+.search-wrapper .input-holder .search-icon span::before {
+  width: 3px;
+  height: 7px;
+  left: 6px;
+  top: 11px;
+  border-radius: 2px;
+  background: #ffffff;
+}
+.search-wrapper .input-holder .search-icon span::after {
+  width: 10px;
+  height: 10px;
+  left: 1px;
+  top: 1px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+/* 关闭按钮和结果容器如果暂时不用，可以隐藏 */
+.search-wrapper .close,
+.search-wrapper .result-container {
+  display: none;
+}
+
+/* 小屏稍微缩窄 */
+@media screen and (max-width: 560px) {
+  .search-wrapper .input-holder {
+    width: 160px;
+  }
+}
