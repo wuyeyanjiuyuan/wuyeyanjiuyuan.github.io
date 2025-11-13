@@ -27,6 +27,17 @@ header.navbar {
   gap: 24px;
 }
 
+.navbar-main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 24px;
+  background: #ffffff;
+  border-radius: 999px;         /* 椭圆效果 */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  flex: 1;                      /* 占据左侧大部分空间 */
+}
+
 /* logo */
 .logo img {
   height: 40px;
