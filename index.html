@@ -55,21 +55,21 @@
   </footer>
 
   <!-- 模块加载逻辑（无动画） -->
-  <script>
+  <script src="./js/jquery-1.11.0.min.js"></script>
+    <script>
     $(function(){
-      const modules = {
-        "#module-search": "modules/search.html",
-        "#module-carousel": "modules/carousel.html",
-        "#module-featured": "modules/featured.html",
-        "#module-live2d": "modules/live2d.html",
-        "#module-effects": "modules/effects.html"
-      };
+        const modules = {
+        "#module-search": "./modules/module-search.html",
+        "#module-carousel": "./modules/module-carousel.html",
+        "#module-featured": "./modules/module-featured.html",
+        "#module-live2d": "./modules/module-live2d.html",
+        "#module-effects": "./modules/module-effects.html"
+        };
 
-      // 直接加载各模块
-      for (let id in modules) {
+        for (let id in modules) {
         $(id).load(modules[id]);
-      }
+        }
     });
-  </script>
+    </script>
 </body>
 </html>
