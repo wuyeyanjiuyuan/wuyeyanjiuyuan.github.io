@@ -1,12 +1,20 @@
 html,body {height: 100%;}
 
-.search-wrapper {
+.search-wrapper_bk {
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     top:65px;
     left:75%;
+}
+.search-wrapper {
+    position: relative;      /* 不再绝对定位，跟随 header 布局 */
+    transform: none;
+    top: auto;
+    left: auto;
+
+    margin-left: -40px;      /* ★ 往左移动 40px（你可以调成 -20/-60）*/
 }
 .search-wrapper.active {}
 

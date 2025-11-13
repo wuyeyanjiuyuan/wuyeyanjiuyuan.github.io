@@ -52,6 +52,7 @@ header.navbar {
   justify-content: center;
   font-size: 18px;           /* 原 14px → 18px，视觉大提升 */
   font-weight: 500;
+  margin-left: -300px;   /* 左移 20px，自行调 10~40px 看视觉效果 */
 }
 
 .nav-links a {
