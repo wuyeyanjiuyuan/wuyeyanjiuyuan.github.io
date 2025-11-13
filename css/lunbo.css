@@ -1,70 +1,82 @@
-* {
-	padding:0;
-	margin:0;
+/* 轮播容器外层：占满左侧方块宽度 */
+.carousel-container {
+  width: 100%;
 }
-/* 修改轮播容器 */
-.box {
-    width: 750px;
-    height: 450px;  /* 缩小尺寸 */
-    float: left;
-    margin: 10px 0 0 50px;
+
+/* 轮播盒子：固定比例的卡片 */
+.carousel.box {
+  position: relative;
+  width: 100%;
+  /* 16:9 比例：高度 = 宽度 * 9 / 16 */
+  padding-top: 56.25%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
 }
-li {
-	list-style:none;
-	width:100%;
-	height:450px;
+
+/* 只影响轮播里的 li 和 img，不影响全局 */
+.carousel .swiper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300%;   /* 3 张图 */
+  height: 100%;
 }
-img {
-	width:100%;
-	height:100%;
-	vertical-align:top;
+
+.carousel .swiper li {
+  list-style: none;
+  float: left;
+  width: 33.3333%;
+  height: 100%;
 }
-.swiper {
-	width:500%;
-	height:450px;
-	position:absolute;
-	left:0;
-	top:0;
+
+.carousel .swiper li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.swiper li {
-	width:20%;
-	float:left;
+
+/* 底部小圆点 */
+.carousel .dot {
+  position: absolute;
+  display: flex;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
 }
-.swiper li img {
-	width:100%;
+
+.carousel .dot li {
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-right: 6px;
+  opacity: 0.7;
 }
-.dot {
-	position:absolute;
-	display:flex;
-	right:50%;
-	bottom:0;
-	transform:translate(50%,0);
-	margin-bottom:8px;
+
+.carousel .dot li.active {
+  background-color: burlywood;
+  opacity: 1;
 }
-.dot li {
-	width:15px;
-	height:15px;
-	border-radius:50%;
-	background-color:#fff;
-	margin-right:5px;
+
+/* 左右箭头 */
+.carousel .left,
+.carousel .right {
+  font-family: "宋体";
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0,0,0,0.6);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: yellowgreen;
+  font-size: 28px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
 }
-.dot .active {
-	background-color:burlywood;
-}
-.left,.right {
-	font-family: "宋体";
-	width:60px;
-	height:60px;
-	background-color:rgba(0,0,0,0.6);
-	position:absolute;
-	top:50%;
-	transform:translate(0,-50%);
-	color:yellowgreen;
-	font-size:50px;
-	text-align:center;
-	line-height:60px;
-	cursor:pointer;
-}
-.right {
-	right:0;
+
+.carousel .right {
+  right: 0;
 }
