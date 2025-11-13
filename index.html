@@ -54,10 +54,9 @@
     <p>Copyright &copy; 2025 午夜研究院 | 保留所有权利</p>
   </footer>
 
-  <!-- 模块加载 + 动画逻辑 -->
+  <!-- 模块加载逻辑（无动画） -->
   <script>
     $(function(){
-      // 模块路径表（对应 modules 目录下的 HTML 文件）
       const modules = {
         "#module-search": "modules/search.html",
         "#module-carousel": "modules/carousel.html",
@@ -66,20 +65,9 @@
         "#module-effects": "modules/effects.html"
       };
 
-      // 初始化加载动画
+      // 直接加载各模块
       for (let id in modules) {
-        $(id).html('<div class="loader"></div>');
-      }
-
-      // 异步加载模块 + 添加渐显动画
-      for (let id in modules) {
-        $(id).load(modules[id], function(){
-          const $module = $(this);
-          $module.find('.loader').fadeOut(200, function(){
-            $(this).remove();
-            $module.addClass('loaded');
-          });
-        });
+        $(id).load(modules[id]);
       }
     });
   </script>
