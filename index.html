@@ -8,11 +8,12 @@
 
   <!-- 样式 -->
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/lunbo.css">
   <link rel="stylesheet" href="css/search-form.css">
+  <!-- 不再需要 loading.css，如果以后想用动画可以再打开 -->
+  <!-- <link rel="stylesheet" href="css/loading.css"> -->
 
-  <!-- jQuery -->
+  <!-- jQuery（给 live2d 和模块加载共用） -->
   <script src="live2d/assets/jquery.min.js"></script>
   <script src="live2d/assets/jquery-ui.min.js"></script>
 
@@ -38,15 +39,15 @@
     </nav>
 
     <!-- 搜索模块容器 -->
-    <div id="module-search" class="module"></div>
+    <div id="module-search"></div>
   </header>
 
   <!-- 模块区 -->
   <main>
-    <div id="module-carousel" class="module"></div>
-    <div id="module-featured" class="module"></div>
-    <div id="module-live2d" class="module"></div>
-    <div id="module-effects" class="module"></div>
+    <div id="module-carousel"></div>
+    <div id="module-featured"></div>
+    <div id="module-live2d"></div>
+    <div id="module-effects"></div>
   </main>
 
   <!-- 页脚 -->
@@ -55,21 +56,24 @@
   </footer>
 
   <!-- 模块加载逻辑（无动画） -->
-  <script src="./js/jquery-1.11.0.min.js"></script>
-    <script>
+  <script>
     $(function(){
-        const modules = {
-        "#module-search": "./modules/module-search.html",
-        "#module-carousel": "./modules/module-carousel.html",
-        "#module-featured": "./modules/module-featured.html",
-        "#module-live2d": "./modules/module-live2d.html",
-        "#module-effects": "./modules/module-effects.html"
-        };
+      const modules = {
+        "#module-search":  "./modules/search.html",
+        "#module-carousel": "./modules/carousel.html",
+        "#module-featured": "./modules/featured.html",
+        "#module-live2d":   "./modules/live2d.html",
+        "#module-effects":  "./modules/effects.html"
+      };
 
-        for (let id in modules) {
-        $(id).load(modules[id]);
-        }
+      for (let id in modules) {
+        $(id).load(modules[id], function(response, status, xhr){
+          if (status === "error") {
+            console.error("模块加载失败：", id, modules[id], xhr.status, xhr.statusText);
+          }
+        });
+      }
     });
-    </script>
+  </script>
 </body>
 </html>
