@@ -21,44 +21,34 @@ a {
 header.navbar {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 20px;           /* 原来大概 10px → 现在翻倍 */
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* 左侧：logo + 导航，被白色椭圆背景包裹 */
-.navbar-main {
+  padding: 30px 20px;
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 10px 24px;
-  background: #ffffff;
-  border-radius: 999px;         /* 椭圆效果 */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  flex: 1;                      /* 占据左侧大部分空间 */
 }
 
-/* logo 放大一点 */
+/* logo */
 .logo img {
-  height: 64px;                 /* 如果太大可以改成 56px */
+  height: 40px;
   display: block;
 }
 
-/* 导航文字放大一点，间距拉开 */
+/* 导航链接：大号、美观、间距更宽 */
 .nav-links {
   display: flex;
-  gap: 24px;                    /* 链接间距 */
+  gap: 32px;                 /* 原 18px → 现在宽松大气 */
   flex: 1;
   justify-content: center;
-  font-size: 16px;              /* 原来 14 → 16 或 18 看你喜好 */
+  font-size: 18px;           /* 原 14px → 18px，视觉大提升 */
+  font-weight: 500;
 }
 
 .nav-links a {
-  color: #333;
+  color: #222;
   opacity: 0.9;
   position: relative;
-  padding-bottom: 2px;
+  padding-bottom: 4px;       /* 加一点底部位置更稳 */
+  transition: opacity .15s;
 }
 
 .nav-links a::after {
@@ -69,7 +59,7 @@ header.navbar {
   width: 0;
   height: 2px;
   background: #007aff;
-  transition: width 0.2s ease;
+  transition: width 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -80,30 +70,11 @@ header.navbar {
   width: 100%;
 }
 
-/* 右侧搜索模块：单独一块，不圈在白色椭圆里 */
+
+/* 搜索模块容器靠最右 */
 #module-search {
-  margin-left: 4px;
+  margin-left: auto;
 }
-
-/* 小屏适配：导航换行时让结构不乱 */
-@media (max-width: 900px) {
-  header.navbar {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .navbar-main {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  #module-search {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
 
 /* 主体总宽度：轮播+精选所在区域 */
 #main-container {
