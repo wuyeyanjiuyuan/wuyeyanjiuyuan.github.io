@@ -1,152 +1,87 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>午夜研究院</title>
-    <link rel="icon" href="images/icon.ico" sizes="16x16">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>午夜研究院</title>
+  <link rel="icon" href="images/icon.ico" sizes="16x16">
 
-    <!-- 样式文件 -->
-    <link rel="stylesheet" href="css/index.css">
+  <!-- 样式 -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/lunbo.css">
+  <link rel="stylesheet" href="css/search-form.css">
 
-    <!-- jQuery -->
-    <script src="live2d/assets/jquery.min.js"></script>
-    <script src="live2d/assets/jquery-ui.min.js"></script>
+  <!-- jQuery -->
+  <script src="live2d/assets/jquery.min.js"></script>
+  <script src="live2d/assets/jquery-ui.min.js"></script>
 
-    <!-- 禁止百度等搜索引擎自动转码 -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+  <!-- 禁止转码 -->
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 </head>
 
 <body>
-    <!-- 顶部导航栏 -->
-    <header class="navbar">
-        <div class="logo">
-            <a href="https://wuyeyanjiuyuan.github.io/">
-                <img src="images/logo.png" alt="午夜研究院 Logo">
-            </a>
-        </div>
-
-        <nav class="nav-links">
-            <a href="https://wuyeyanjiuyuan.github.io/pix2text" target="_blank">Pix2Text</a>
-            <a href="https://space.bilibili.com/13308970" target="_blank">Bilibili</a>
-            <a href="https://www.cnki.net/" target="_blank">CNKI</a>
-            <a href="#">关于我们</a>
-        </nav>
-
-        <!-- 搜索框 -->
-        <form class="search-wrapper" onsubmit="submitFn(this, event);">
-            <div class="input-holder">
-                <input type="text" class="search-input" placeholder="搜索..." />
-                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
-            </div>
-            <span class="close" onclick="searchToggle(this, event);"></span>
-            <div class="result-container"></div>
-        </form>
-    </header>
-
-    <!-- 轮播区域 -->
-    <section class="carousel-container">
-        <div class="carousel box">
-            <ul class="swiper">
-                <li class="active"><a href="https://space.bilibili.com/13308970" target="_blank"><img src="images/index1.jpg" alt=""></a></li>
-                <li><a href="https://www.cnki.net/" target="_blank"><img src="images/index2.jpg" alt=""></a></li>
-                <li><a href="https://lol.qq.com/" target="_blank"><img src="images/index3.jpg" alt=""></a></li>
-            </ul>
-            <ul class="dot">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <div class="left">&lt;</div>
-            <div class="right">&gt;</div>
-        </div>
-        <script src="js/lunbo.js"></script>
-    </section>
-
-    <!-- 内容展示区 -->
-    <main class="content">
-        <h2>精选推荐</h2>
-        <div class="grid-gallery">
-            <a href="https://www.bilibili.com/bangumi/play/ss33542" target="_blank"><img src="images/list1.png" alt=""></a>
-            <a href="https://www.bilibili.com/bangumi/play/ss33543" target="_blank"><img src="images/list2.png" alt=""></a>
-            <a href="https://www.bilibili.com/bangumi/play/ss33539" target="_blank"><img src="images/list3.png" alt=""></a>
-            <a href="https://www.bilibili.com/bangumi/play/ss5365" target="_blank"><img src="images/list4.png" alt=""></a>
-            <a href="https://www.bilibili.com/bangumi/play/ss5316" target="_blank"><img src="images/list5.png" alt=""></a>
-        </div>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <p>Copyright &copy; 2025 午夜研究院 | 保留所有权利</p>
-    </footer>
-
-    <!-- Live2D 模型 -->
-    <div class="waifu">
-        <div class="waifu-tips"></div>
-        <canvas id="live2d" class="live2d"></canvas>
-        <div class="waifu-tool">
-            <span class="fui-home"></span>
-            <span class="fui-chat"></span>
-            <span class="fui-eye"></span>
-            <span class="fui-user"></span>
-            <span class="fui-photo"></span>
-            <span class="fui-info-circle"></span>
-            <span class="fui-cross"></span>
-        </div>
+  <!-- 顶部导航 -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="https://wuyeyanjiuyuan.github.io/">
+        <img src="images/logo.png" alt="午夜研究院 Logo">
+      </a>
     </div>
-    <script src="live2d/assets/waifu-tips.js"></script>
-    <script src="live2d/assets/live2d.js"></script>
-    <script>
-        live2d_settings['modelId'] = 5;
-        live2d_settings['modelTexturesId'] = 1;
-        initModel("live2d/assets/waifu-tips.json");
-    </script>
 
-    <!-- 鼠标特效 -->
-    <script>
-        var a_idx = 0;
-        jQuery(document).ready(function($) {
-            $("body").click(function(e) {
-                var a = ["富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善"];
-                var $i = $("<span></span>").text(a[a_idx]);
-                a_idx = (a_idx + 1) % a.length;
-                var x = e.pageX, y = e.pageY;
-                $i.css({
-                    "z-index": 9999,
-                    "top": y - 20,
-                    "left": x,
-                    "position": "absolute",
-                    "font-weight": "bold",
-                    "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
-                });
-                $("body").append($i);
-                $i.animate({"top": y - 180, "opacity": 0}, 1500, function() { $i.remove(); });
-            });
+    <nav class="nav-links">
+      <a href="https://wuyeyanjiuyuan.github.io/pix2text" target="_blank">Pix2Text</a>
+      <a href="https://space.bilibili.com/13308970" target="_blank">Bilibili</a>
+      <a href="https://www.cnki.net/" target="_blank">CNKI</a>
+      <a href="#">关于我们</a>
+    </nav>
+
+    <!-- 搜索模块容器 -->
+    <div id="module-search" class="module"></div>
+  </header>
+
+  <!-- 模块区 -->
+  <main>
+    <div id="module-carousel" class="module"></div>
+    <div id="module-featured" class="module"></div>
+    <div id="module-live2d" class="module"></div>
+    <div id="module-effects" class="module"></div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>Copyright &copy; 2025 午夜研究院 | 保留所有权利</p>
+  </footer>
+
+  <!-- 模块加载 + 动画逻辑 -->
+  <script>
+    $(function(){
+      // 模块路径表（对应 modules 目录下的 HTML 文件）
+      const modules = {
+        "#module-search": "modules/module-search.html",
+        "#module-carousel": "modules/module-carousel.html",
+        "#module-featured": "modules/module-featured.html",
+        "#module-live2d": "modules/module-live2d.html",
+        "#module-effects": "modules/module-effects.html"
+      };
+
+      // 初始化加载动画
+      for (let id in modules) {
+        $(id).html('<div class="loader"></div>');
+      }
+
+      // 异步加载模块 + 添加渐显动画
+      for (let id in modules) {
+        $(id).load(modules[id], function(){
+          const $module = $(this);
+          $module.find('.loader').fadeOut(200, function(){
+            $(this).remove();
+            $module.addClass('loaded');
+          });
         });
-    </script>
-
-    <!-- 搜索框 JS -->
-    <script>
-        function searchToggle(obj, evt){
-            var container = $(obj).closest('.search-wrapper');
-            if(!container.hasClass('active')){
-                container.addClass('active');
-                evt.preventDefault();
-            }
-            else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
-                container.removeClass('active');
-                container.find('.search-input').val('');
-                container.find('.result-container').fadeOut(100, function(){$(this).empty();});
-            }
-        }
-
-        function submitFn(obj, evt){
-            let value = $(obj).find('.search-input').val().trim();
-            let _html = value ? "搜索内容: <b>" + value + "</b>" : "请输入搜索内容~";
-            $(obj).find('.result-container').html('<span>' + _html + '</span>').fadeIn(100);
-            evt.preventDefault();
-        }
-    </script>
+      }
+    });
+  </script>
 </body>
 </html>
